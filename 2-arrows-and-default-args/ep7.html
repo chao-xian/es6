@@ -1,0 +1,31 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>More on Arrow Functions ➡️ ➡️</title>
+</head>
+<body>
+  <script>
+    const race = '100m Dash';
+    const winners = ['Batman', 'Robin', 'Batgirl'];
+
+    // because the {} would contain what is explictly returned,
+    // we'd get an error because we are treating {} as an object literal
+    // so we wrap it in ()
+    // As the property name is the same as the variable being referenced
+    // we can shortcut `race: race` to just `race`
+    const win = winners.map((winner, i) => ({ name: winner, race, place: i + 1 }))
+
+    // Spit out object in a nicely laid out table
+    console.table(win);
+
+    const ages = [23, 45, 60, 25, 12, 2, 5, 16, 32, 66, 78];
+
+    // combination of implicit return and
+    // filter taking a condition
+    // so if blah not required
+    const oldies = ages.filter(age => age >= 60);
+
+    console.log(oldies + ' 👴');
+  </script>
+</body>
+</html>
