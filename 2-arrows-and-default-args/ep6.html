@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow functions ➡️ ➡️</title>
+</head>
+<body>
+  <script>
+    const names = ['Bruce', 'Dick', 'Barbara', 'Alfred'];
+
+    // The old way
+    const fullNames = names.map(function(name) {
+      return `${name} Bat`;
+    });
+
+    console.log(fullNames);
+
+    // new way - the fat arrow
+    const fullNames2 = names.map((name) => {
+      return `${name} Bat`;
+    });
+
+    console.log(fullNames2);
+
+    // one arg so get rid of (). Otherwise it'd be (arg1, arg2)
+    const fullNames3 = names.map(name => {
+      return `${name} Bat`;
+    });
+
+    console.log(fullNames3);
+
+    // implicit return so strip it down
+    const fullNames4 = names.map(name => `${name} Bat`);
+
+    console.log(fullNames4);
+
+    // no args is () => {}
+    const fullNames5 = names.map(() => `Go Gotham!`);
+
+    console.log(fullNames5);
+
+    /*
+     All fat arrow functions are anonymous. Example of a named function:
+    function thisIsANamedFunc(name) { alert(`Hello ${name}`) ;}
+
+    In stack traces you'd see the name of your function come up as what
+    your error occurred within.
+
+    Otherwise you can assign to a variable.
+
+     */
+     var myFatFunction = (name) => {
+       alert(`Hello ${name}!`);
+     };
+
+     myFatFunction('Batman');
+  </script>
+</body>
+</html>
