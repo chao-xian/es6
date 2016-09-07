@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>When NOT to use Arrow Functions - ES6 for Everybody 🔥</title>
+  </head>
+  <body>
+    <style>
+      button { font-size: 100px; }
+      .on { background: #ffc600 }
+    </style>
+    <button id="pushy">Push Me</button>
+
+    <script>
+      // When you really need `this`
+      const button = document.querySelector('#pushy');
+      button.addEventListener('click', function() {
+        console.log(this);
+        this.classList.toggle('on');
+      });
+
+      // When you need to bind a method to an object
+      const person = {
+        points: 23,
+        score() {
+          console.log(this);
+          this.points++;
+        }
+      }
+
+      // When you need to add a prototype method
+      class Car {
+        constructor(make, colour) {
+          this.make = make;
+          this.colour = colour;
+        }
+      }
+
+      const beemer = new Car('BMW', 'grey');
+      const scooby = new Car('Subaru', 'blue');
+
+      Car.prototype.summarize = function() {
+        return `This car is a ${this.make} in the colour ${this.colour}`
+      }
+
+      // When you need the arguments object for a function
+      // meaning () => {} would have no `arguments` object available
+      const orderChildren = function() {
+        const children = Array.from(arguments);
+        return children.map((child, i) => {
+          return `${child} was child ${i + 1}`;
+        })
+        console.log(arguments);
+      }
+    </script>
+  </body>
+</html>
