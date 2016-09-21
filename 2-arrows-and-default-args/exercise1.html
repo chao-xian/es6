@@ -32,18 +32,27 @@
 <script>
 
   // Select all the list items on the page and convert to array
-  let vids = document.querySelectorAll('li');
-  console.log(vids);
-  // Filter for only the elements that contain the word 'flexbox'
-  vids = vids.filter(function(element){
-    if (element.textContent === '') {
+  let vid_elements = document.querySelectorAll('li');
+  let vids = [...vid_elements] // spread the NodeList to an array! Magic
 
+  // Filter for only the elements that contain the word 'flexbox'
+  vids = vids.filter((element) => {
+    if (element.textContent.startsWith('Flexbox')) {
+      return true;
+    } else {
+      return false;
     }
   });
+  console.log(vids);
 
   // map down to a list of time strings
+  times = vids.map((vid) => {
+    return vid.getAttribute('data-time');
+  });
+  console.log(times);
 
   // map to an array of seconds
+
 
   // reduce to get total
 
