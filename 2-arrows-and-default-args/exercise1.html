@@ -36,27 +36,57 @@
   let vids = [...vid_elements] // spread the NodeList to an array! Magic
 
   // Filter for only the elements that contain the word 'flexbox'
-  vids = vids.filter((element) => {
+  flexbox_vids = vids.filter((element) => {
     if (element.textContent.startsWith('Flexbox')) {
       return true;
     } else {
       return false;
     }
   });
-  console.log(vids);
+  console.log(flexbox_vids);
 
   // map down to a list of time strings
-  times = vids.map((vid) => {
+  time_strings = flexbox_vids.map((vid) => {
     return vid.getAttribute('data-time');
+  });
+  console.log(time_strings);
+
+  // map to an array of seconds
+  times = time_strings.map((time_string) => {
+    // Split each minute and multiply by 60, then add to the other seconds
+    // 5:30 would be 5 * 60 + 30 = 330
+    time_parts = time_string.split(':');
+    seconds = parseInt(time_parts[0]) * 60 + parseInt(time_parts[1]);
+    return seconds;
   });
   console.log(times);
 
-  // map to an array of seconds
-
-
   // reduce to get total
+  total = times.reduce((previous, current) => {
+    return previous + current;
+  });
+  console.log(total);
 
   // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
+  chained_total = vids.filter((element) => {
+    if (element.textContent.startsWith('Flexbox')) {
+      return true;
+    } else {
+      return false;
+    }
+  }).map((vid) => {
+    return vid.getAttribute('data-time');
+  }).map((time_string) => {
+    // Split each minute and multiply by 60, then add to the other seconds
+    // 5:30 would be 5 * 60 + 30 = 330
+    time_parts = time_string.split(':');
+    seconds = parseInt(time_parts[0]) * 60 + parseInt(time_parts[1]);
+    return seconds;
+  }).reduce((previous, current) => {
+    return previous + current;
+  });
+  console.log(chained_total);
+
 
 </script>
 </body>
