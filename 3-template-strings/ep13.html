@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Creating HTML fragments with Template Literals</title>
+  </head>
+  <body>
+  <script>
+    const person = {
+      name: 'Batman',
+      job: 'Hero',
+      city: 'Gotham',
+      bio: 'Witness to his parents murder as a young boy, Bruce Wayne vowed vengeance on crime as the Dark Knight Detective'
+    };
+
+    const markup = `
+      <div class="person">
+        <h2>
+          ${person.name}
+          <span class="job">${person.job}</span>
+        </h2>
+        <p class="location">${person.city}</p>
+        <p class="bio">${person.bio}</p>
+      </div>
+    `;
+
+    console.log(markup);
+
+    document.body.innerHTML = markup;
+  </script>
+  </body>
+</html>
