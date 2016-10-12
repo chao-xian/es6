@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tagged templates exercise</title>
+  </head>
+  <body>
+    <div class="bio">
+
+    </div>
+
+    <script>
+      const dict = {
+        HTML: 'Hyper Text Markup Language',
+        CSS: 'Cascading Style Sheets',
+        JS: 'JavaScript'
+      }
+
+      const first = 'Kelvin';
+      const last = 'Gan';
+      const sentence = `Hello my name is ${first} ${last} and I love to code ${'HTML'}, ${'CSS'} and ${'JS'}`;
+
+      const bio = document.querySelector('.bio');
+      const p = document.createElement('p');
+      p.innerHTML = sentence;
+      bio.appendChild(p);
+    </script>
+  </body>
+</html>
