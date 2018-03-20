@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+  <title>The Temporal Dead Zone</title>
+</head>
+<body>
+  <script>
+    // This will say 'undefined' because
+    // with var it has access to 'pizza'
+    // but not the value
+    console.log(pizza);
+    /*
+
+      This is called the Temporal Dead Zone
+
+    */
+    var pizza = 'Thin pan 🍕🍕🍕';
+
+    console.log(burger); // This time this will throw an 'Uncaught Reference Error: burger is not defined'
+
+
+    let burger = '🍔'; // or const
+  </script>
+</body>

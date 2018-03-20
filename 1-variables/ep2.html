@@ -9,10 +9,20 @@
     let points = 50;
     let winner = false;
 
+    if (true) {
+      let winner = true;
+      // if we were using var, which is function scoped,
+      // this would overwrite to true. But as let is
+      // block scoped this is a separate variable.
+    }
+
     points = 100; // let can be updated but cannot be re-declared ie. another let points = 200;
 
     const person = {
       name: 'Kelv',
+      // the values of properties of an object can "change",
+      // just the object cannot be re-assigned
+      // but the original object's values actually don't change!
       age: 39
     }
 

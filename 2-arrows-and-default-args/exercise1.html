@@ -39,10 +39,10 @@
   // 🔥 This can also be done in a single .reduce(), but we're practicing arrow functions here, so chain them!
   const chained_total = vids
     // Filter for only the elements that contain the word 'flexbox'
-    .filter(element => element.textContent.includes('Flexbox'))
+    .filter(vid => vid.textContent.includes('Flexbox'))
     // map down to a list of time strings
     // .map(vid => vid.getAttribute('data-time'))
-    .mpa(vid => item.dataset.time) // dataset gets data-* attributes
+    .map(vid => vid.dataset.time) // dataset gets data-* attributes
     // map to an array of seconds
     .map(time_string => {
       // Split each minute and multiply by 60, then add to the other seconds
