@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Iterables and looping - the for of loop</title>
+  </head>
+  <body>
+    <script>
+      const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+
+      // Downside to this is that confusing and verbose syntax
+      for (let i = 0; i < cuts.length; i++) {
+        console.log(cuts[i]);
+      }
+
+
+      // Downside is that you can't abort an iteration / skip
+      // as forEach doesn't support break or continue keywords
+      cuts.forEach((cut) => {
+        console.log(cut);
+      });
+
+
+      // for in
+      // Major disadvantage is that if anything is added to the
+      // prototype, for example Array.prototype.shuffle = blah
+      // output would also output the shuffle function!
+      // Of if you added any other property to cuts:
+      // cuts.shop = 'MM MEats';
+      // that would also be ouputted
+      for (const index in cuts) {
+        console.log(cuts[index]);
+      }
+
+      // another example (in console):
+      // var names = ['Kelv', 'Gan'];
+      // for (name in names) { console.log(name); }
+
+
+      // For Of loop!:
+      console.log('for... of loop!');
+      for (const cut of cuts) {
+        if(cut === 'Brisket') {
+          continue;
+        }
+
+        console.log(cut);
+      }
+    </script>
+  </body>
+</html>
