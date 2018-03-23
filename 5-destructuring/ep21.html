@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Destructuring Functions - Multiple returns and named defaults</title>
+  </head>
+  <body>
+    <script>
+      function convertCurrency(amount) {
+        const converted = {
+          USD: amount * 0.76,
+          GBP: amount * 0.53,
+          AUD: amount * 1.01,
+          MEX: amount * 13.30
+        };
+
+        return converted;
+      }
+
+      const hundo = convertCurrency(100);
+      console.log(hundo);
+
+      // One way of doing it:
+      // console.log(hundo.AUD);
+      // console.log(hundo.MEX);
+
+      // But as the function returns an object, we can destructure that
+      const { MEX, GBP, AUD } = convertCurrency(100); // also don't care about order, unlike destructuring an array
+      const { USD } = convertCurrency(100);
+      console.log(USD, GBP, AUD, MEX);
+
+
+      // Destructuring function params:
+      function tipCalc({ total, tip = 0.15, tax = 0.13 }) {
+        return total + (tip * total) + (tax * total);
+      }
+
+      const bill = tipCalc({ tip: 0.20, total: 200 });
+      console.log(bill);
+
+
+      // If we passed in no param values at all, we would do the following,
+      // where we set a default of being passsed an empty object
+      function defaultTipCalc({ total = 100, tip = 0.15, tax = 0.13 } = {}) {
+        return tipCalc({ total, tip, tax });
+      }
+
+      const defaultBill = defaultTipCalc();
+      console.log(defaultBill);
+    </script>
+  </body>
+</html>
