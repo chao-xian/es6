@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Destructuring Objects</title>
+  </head>
+  <body>
+    <script>
+      const person = {
+        first: 'Kelv',
+        last: 'Gan',
+        country: 'UK',
+        city: 'London',
+        twitter: '@chao_xian'
+      };
+
+      // Instead of doing:
+      // const first = person.first;
+      // const last = person.last;
+
+      // ... you can do:
+      const { first, last, twitter } = person;
+
+      const kelv = {
+        first: 'Kelv',
+        last: 'Gan',
+        links: {
+          social: {
+            twitter: 'https://twitter.com/chao_xian',
+            facebook: 'https://facebook.com/chao_xian'
+          }
+        }
+      };
+
+      // And instead of doing
+      // const twitter = kelv.links.social.twitter;
+      // const facebook = kelv.links.social.facebook;
+
+      // const { twitter, facebook } = kelv.links.social;
+      // Because we already have a const = twitter above we
+      // can't reuse that varname. So when we destructure
+      // we can specify:
+      const { twitter:tweets, facebook } = kelv.links.social;
+
+      // For values not defined, it will fallback to the
+      // defaults. The others are overwritten.
+      const settings = { width: 300, color: 'black' };
+      const { width = 100, height = 100, color = 'blue', fontSize = 25 } = settings;
+
+      // Combining the two:
+      const { w:overridden_width = 100, h:default_height = 200 } = { w: 200 }
+    </script>
+  </body>
+</html>
