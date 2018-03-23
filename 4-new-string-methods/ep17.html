@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New string methods</title>
+  </head>
+  <body>
+    <script>
+      const course = 'RFB2';
+      const flightNumber = '20-AC2018-jz';
+      const accountNumber = '825242631RT0001';
+
+      const make = 'BMW';
+      const model = 'X5';
+      const colour = 'Royal Blue';
+
+      // .startWith()
+
+      // .endsWith()
+      // can also take an optional number of characters to includes
+      // so if we wanted to check if the first 11 characaters of
+      // flightNumber 'ends' with RT we can do:
+      flightNumber.endsWith('RT', 11);
+
+      // .includes()
+
+      // .repeat()
+      // console.log(' 🐍 such a bitch...'.repeat(1000));
+
+      function leftPad(str, length = 20) {
+        return `→ ${' '.repeat(length - str.length)}${str}`
+      }
+
+      console.log(leftPad(make));
+      console.log(leftPad(model));
+      console.log(leftPad(colour));
+
+    </script>
+  </body>
+</html>
