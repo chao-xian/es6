@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Swapping variables with destructuring</title>
+  </head>
+  <body>
+    <script>
+      let inRing = 'Hulk Hogan';
+      let onSide = 'The Rock';
+
+      console.log(`inRing: ${inRing}, onSide: ${onSide}`);
+
+      // Swap values
+      [inRing, onSide] = [onSide, inRing];
+
+      console.log(`inRing: ${inRing}, onSide: ${onSide}`);
+    </script>
+  </body>
+</html>
