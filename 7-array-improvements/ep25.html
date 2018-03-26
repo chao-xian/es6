@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Array.from() and Array.of()</title>
+  </head>
+  <body>
+    <div class="people">
+      <p>Kelv</p>
+      <p>Pete</p>
+      <p>Vicki</p>
+    </div>
+    <script>
+      const people = document.querySelectorAll('.people p');
+      // NodeList isn't an Array, so is only Array-like with an length
+      // on the prototype
+      // const names = people.map(person => person.textcontent);
+      const peopleArray = Array.from(people);
+      const names = peopleArray.map(person => person.textContent);
+      console.log(names);
+
+      // Even quicker way:
+      const people2 = Array.from(document.querySelectorAll('.people p'));
+      const names2 = people2.map(person => person.textContent);
+
+      console.log(names2);
+
+      // Or as Array from takes a function as a parameter
+      // and automatically map over it
+      const people3 = document.querySelectorAll('.people p');
+      const peopleArray3 = Array.from(people3, person => {
+        return person.textContent;
+      });
+
+      console.log(peopleArray3);
+
+      // Another example converting the arguments in to an Array
+      // A version of this fucntion previously looped over,
+      // this version we will use reduce
+      function sumAll() {
+        const nums = Array.from(arguments);
+        return nums.reduce((prev, next) => prev + next, 0);
+      }
+
+      console.log(sumAll(2,34,234,234,23,42345,234123));
+
+
+      console.log(Array.of(123,234,235,4,6,234,234,5345));
+    </script>
+  </body>
+</html>
