@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Using for...of with Objects</title>
+  </head>
+  <body>
+    <script>
+      const apple = {
+        colour: 'Red',
+        weight: 50,
+        sugar: 10
+      };
+
+      // The following throws an error as the prototype does not
+      // have a iterator.
+      // for (const prop of apple.entries()) {
+      //   console.log(prop);
+      // }
+
+      // But otherwise with ES2017:
+      for (const prop of Object.entries(apple)) {
+        console.log(prop);
+      }
+
+      // If not, workarounds are:
+      for (const prop of Object.keys(apple)) {
+        const value = apple[prop]; // yuck!
+        console.log(`${prop}:, ${value}`);
+      }
+
+      for (const prop in apple) {
+        const value = apple[prop]; // yuck!
+        console.log(`${prop}:, ${value}`);
+      }
+    </script>
+  </body>
+</html>
