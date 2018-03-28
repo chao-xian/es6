@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The ... Spread operator</title>
+  </head>
+  <body>
+    <script>
+      const features = ['Deep Dish', 'Pepperoni', 'Hawaiian'];
+      const speciality = ['Meatzza', 'Spicy Mama', 'Margherita'];
+
+      const deepDish = {
+        pizzaName: 'Deep Dish',
+        size: 'Medium',
+        ingredients: ['Marinana', 'Italian Sausage', 'Dough', 'Cheese']
+      };
+
+      // a contrived example, but what if you wanted to cobine
+      // features and speciality pizza arrays above, but inject
+      // a veggie pizza in the middle:
+      // let pizzas = [];
+      // pizzas = pizzas.concat(features);
+      // pizzas.push('veg');
+      // pizzas = pizzas.concat(speciality);
+      // console.log(pizzas);
+      // BLEURGH
+
+      // Example of the spread operator:
+      // [..."Kelv"];
+      // ["K", "e", "l", "v"];
+
+      // Instead use the 'spread' ... operator to Spread
+      // every item into its own array element:
+      const pizzas = [...features, 'veg', ...speciality];
+
+      // Copying an array. Because = copies the reference we'd have to do:
+      // const fridayPizzas = [].concat(pizzas);
+      // otherwise any changes to fridayPizzas affects pizzas.
+
+      // Now we can do:
+      const fridayPizzas = [...pizzas]; // spread the elements of pizza array
+                                        // into new array
+
+      fridayPizzas[0] = 'Canada Pizza';
+
+      console.log(pizzas);
+      console.log(fridayPizzas);
+
+    </script>
+  </body>
+</html>
