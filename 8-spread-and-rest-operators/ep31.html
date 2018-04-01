@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Spreading into a function</title>
+  </head>
+  <body>
+    <script>
+      const inventors = ['Einstein', 'Newton', 'Gallileo'];
+      const newIntentors = ['Musk', 'Jobs'];
+
+      // Old way of combining the two
+      // inventors.push.apply(inventors, newInventors);
+      // effectively calling push on all items in newInventors
+
+      // That would be to overcome:
+      // inventors.push(newInventors);
+      // doesn't work as you end up with ["Einstein", "Newton", "Gallileo, Array[2]"]
+
+      // So instead:
+      inventors.push(...newIntentors);
+      console.log(inventors);
+
+
+      const name = ['Kelv', 'Gan'];
+
+      function sayHi(first, last) {
+        console.log(`Hi I'm ${first} ${last}`);
+      }
+
+      sayHi(...name);
+    </script>
+  </body>
+</html>
