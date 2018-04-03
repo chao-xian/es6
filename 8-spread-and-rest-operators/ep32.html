@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The ...Rest Param</title>
+  </head>
+  <body>
+    <script>
+      // The exact opposite of the spread operator
+      // where it takes elements of an array and unpacks them
+      // the rest param takes params and packs them into an array.
+      // in a function or a construction
+
+      function convertCurrency(rate, ...amounts) {
+        // instead of arguments object,
+        // we don't know what the difference is with the first param
+        // and the *rest*!
+        return amounts.map(amount => amount * rate);
+      }
+
+      const amounts = convertCurrency(1.54, 10, 23, 52, 1, 56);
+      console.log(amounts);
+
+      // amounts is a true array, not an array like arguments object
+
+
+      // When used with destructuring:
+
+      const runner = ['Kelv', 123, 5.5, 5, 3, 6, 35];
+      // Destructure assuming first is name, then ID and rest are their run
+      // distances
+
+      // pack the rest into the runs array
+      const [name, id, ...runs] = runner;
+      console.log(name, id, runs);
+
+      // From earlier example of team players:
+      const team = ['Wes', 'Kait', 'Lux', 'Sheena', 'Kelly'];
+      const [captain, assistant, ...players] = team;
+      console.log(captain, assistant, players);
+    </script>
+  </body>
+</html>
